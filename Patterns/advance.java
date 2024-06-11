@@ -42,9 +42,58 @@ public class advance {
         }
     }
 
+    public static void butterfly(int n){
+        for(int i=1; i<=n ; i++){
+            // starts
+            for(int j=1 ; j<=i ; j++){
+                System.out.print("*");
+            }
+            // spaces
+            for(int j=1 ; j<=(2*(n-i)); j++){
+                System.out.print(" ");
+            }
+            // stars
+            for(int j=1 ; j<=i ; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        // down half
+        for(int i=n; i>=1 ; i--){
+            // starts
+            for(int j=1 ; j<=i ; j++){
+                System.out.print("*");
+            }
+            // spaces
+            for(int j=1 ; j<=(2*(n-i)); j++){
+                System.out.print(" ");
+            }
+            // stars
+            for(int j=1 ; j<=i ; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        
+    }
+
+    public static void solid_Rhombus(int n){
+        for(int i=1 ; i<=n ; i++){
+            for(int j=1 ; j<=(n-i) ; j++){
+                System.out.print(" ");
+            }
+            for(int j=1 ; j<=n ; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
     public static void main(String args[]){
         //hollow_rectangle(4, 7);
         //inverted_rotated_pyramind(5);
-        zero_one_triangle(5);
+        //zero_one_triangle(5);
+        //butterfly(5);
+        solid_Rhombus(4);
     }
 }
