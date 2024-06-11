@@ -15,7 +15,22 @@ public class advance {
         }
     }
 
+    public static void inverted_rotated_pyramind(int rows){
+        for(int i=1 ; i<=rows ; i++){
+            // spaces
+            for(int j=1 ; j<=(rows-i) ; j++){
+                System.out.print(" ");
+            }
+            // starts
+            for(int j=1 ; j<=i ;j++){
+                System.err.print("*");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String args[]){
-        hollow_rectangle(4, 7);
+        //hollow_rectangle(4, 7);
+        inverted_rotated_pyramind(5);
     }
 }
