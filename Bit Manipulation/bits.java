@@ -11,9 +11,16 @@ public class bits {
         }
     }
 
+    public static int GetIthBit(int n, int i){
+        int BitMask = 1<<i;
+        if((n & BitMask) == 0){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
     public static void main(String args[]){
-        OddEven(10);
-        OddEven(16);
-        OddEven(7);
+        System.out.println(GetIthBit(15, 2));
     }
 }
