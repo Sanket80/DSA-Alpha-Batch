@@ -114,6 +114,19 @@ public class LinkedList {
         return idx + 1;
     }
 
+    public void reverse(){
+        Node prev = null;
+        Node curr = head;
+        Node next;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
     public void print(){
         if(head == null){
             System.out.println("LL is Empty!");
@@ -139,5 +152,7 @@ public class LinkedList {
         ll.print();
         System.out.println(itrSearch(3));
         System.out.println(recSearch(head,3));
+        ll.reverse();
+        ll.print();
     }
 }
