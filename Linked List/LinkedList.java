@@ -200,6 +200,32 @@ public class LinkedList {
         return false;
     }
 
+    public static void removeCycle(){
+        Node slow = head;
+        Node fast = head;
+        boolean isCycle = false;
+        while(fast!=null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                isCycle = true;
+                break;
+            }
+        }
+        if(isCycle == false){
+            return;
+        }
+
+        Node prev = head;
+        slow = head;
+        while(slow != fast){
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        prev.next = null;
+    }
+
     public void print(){
         if(head == null){
             System.out.println("LL is Empty!");
@@ -242,6 +268,8 @@ public class LinkedList {
         head.next = new Node(2);
         head.next.next = new Node(3);
         head.next.next.next = head;
+        System.out.println(isCycle());
+        removeCycle();
         System.out.println(isCycle());
     }
 }
