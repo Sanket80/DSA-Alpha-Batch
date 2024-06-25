@@ -187,6 +187,19 @@ public class LinkedList {
         return true;
     }
 
+    public static boolean isCycle(){
+        Node slow = head;
+        Node fast = head;
+        while(fast!=null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void print(){
         if(head == null){
             System.out.println("LL is Empty!");
@@ -218,11 +231,17 @@ public class LinkedList {
         // removeNthfromEnd(3);
         // ll.print();
         
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(2);
-        ll.addLast(1);
-        ll.print();
-        System.out.println(isPalindrome());
+        // ll.addLast(1);
+        // ll.addLast(2);
+        // ll.addLast(2);
+        // ll.addLast(1);
+        // ll.print();
+        // System.out.println(isPalindrome());
+
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = head;
+        System.out.println(isCycle());
     }
 }
