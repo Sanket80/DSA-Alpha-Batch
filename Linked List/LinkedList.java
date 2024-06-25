@@ -127,6 +127,28 @@ public class LinkedList {
         head = prev;
     }
 
+    public static void removeNthfromEnd(int n){
+        int size = 0;
+        Node temp = head;
+        while (temp != null) {
+            temp = temp.next;
+            size++;
+        }
+
+        if(n == size){
+            head = head.next;
+        }
+
+        int i=1;
+        int idx = (size-n);
+        Node prev = head;
+        while (i < idx) {
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+    }
+
     public void print(){
         if(head == null){
             System.out.println("LL is Empty!");
@@ -134,9 +156,10 @@ public class LinkedList {
         }
         Node temp = head;
         while (temp!=null) {
-            System.out.println(temp.data+" ");
+            System.out.print(temp.data+" ");
             temp = temp.next;
         }
+        System.out.println();
     }
 
     public static void main(String args[]){
@@ -147,12 +170,14 @@ public class LinkedList {
         ll.addLast(4);
         ll.addMiddle(5, 2);
 
-        ll.removeFirst();
-        ll.removeLast();
+        // ll.removeFirst();
+        // ll.removeLast();
         ll.print();
-        System.out.println(itrSearch(3));
-        System.out.println(recSearch(head,3));
-        ll.reverse();
+        // System.out.println(itrSearch(3));
+        // System.out.println(recSearch(head,3));
+        // ll.reverse();
+        // ll.print();
+        removeNthfromEnd(3);
         ll.print();
     }
 }
