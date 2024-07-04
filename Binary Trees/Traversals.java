@@ -95,6 +95,21 @@ public class Traversals {
             int rh = count(root.right);
             return lh+rh+1;
         }
+
+        public static int diameter(Node root){
+            if(root == null){
+                return 0;
+            }
+
+            int leftdiameter = diameter(root.left);
+            int rightdiameter = diameter(root.right);
+            int leftHt = height(root.left);
+            int rightHt = height(root.right);
+
+            int selfdiam = leftHt + rightHt + 1;
+
+            return Math.max(selfdiam, Math.max(leftdiameter, rightdiameter));
+        }
     }
 
     public static void main(String args[]){
@@ -109,6 +124,7 @@ public class Traversals {
         // tree.levelOrder(root);
 
         // System.out.println(tree.height(root));
-        System.out.println(tree.count(root));
+        // System.out.println(tree.count(root));
+        System.out.println(tree.diameter(root));
     }
 }
