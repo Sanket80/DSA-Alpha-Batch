@@ -77,6 +77,24 @@ public class Traversals {
                 }
             }
         }
+
+        public static int height(Node root){
+            if(root == null){
+                return 0;
+            }
+            int lh = height(root.left);
+            int rh = height(root.right);
+            return Math.max(lh, rh) + 1;
+        }
+
+        public static int count(Node root){
+            if(root == null){
+                return 0;
+            }
+            int lh = count(root.left);
+            int rh = count(root.right);
+            return lh+rh+1;
+        }
     }
 
     public static void main(String args[]){
@@ -88,6 +106,9 @@ public class Traversals {
         // tree.preOrder(root);
         // tree.inOrder(root);
         // tree.postOrder(root);
-        tree.levelOrder(root);
+        // tree.levelOrder(root);
+
+        // System.out.println(tree.height(root));
+        System.out.println(tree.count(root));
     }
 }
